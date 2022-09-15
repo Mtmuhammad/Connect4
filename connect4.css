@@ -1,41 +1,57 @@
 @font-face {
    font-family: 'Cafeteria Bold';
-   src: url('Cafeteria\ Bold.otf') format('woff2');
- }
+   src: url('CafeteriaBold.otf') format('woff2');
+}
 
 body {
    background-color: black;
    margin: 0;
    padding: 0;
    box-sizing: border-box;
+   font-family: 'Cafeteria Bold';
 }
 
+/* game header */
 #game-heading {
    text-align: center;
    color: white;
 }
 
-#game-heading input {
-   padding: 10px 5px;
-   border-radius: 10px;
-   text-align: center;
-   font-size: 18px;
+h1 {
+   font-size: 65px;
+   margin: 0;
+   letter-spacing: 0.05em;
 }
 
-#game-heading button {
+/* start game button */
+#start-game {
    padding: 10px;
    border-radius: 10px;
    cursor: pointer;
    background-color: dodgerblue;
    color: white;
-   font-size: 16px;
+   font-size: 15px;
    letter-spacing: 0.05em;
+   display: inline-block;
+   margin-left: 30px;
 }
 
-h1 {
-   font-family: 'Cafeteria Bold';
-   font-size: 110px;
-   margin: 0;
+/* player details */
+.primary {
+   font-size: 30px;
+   margin: 5px 0;
+   display: inline-block;
+}
+
+#current-player {
+   border-bottom: 1px solid white;
+   padding: 0 0.5em;
+   text-align: center;
+}
+
+.fa-solid {
+   margin-left: 5px;
+   color: rgb(222, 3, 3);
 }
 
 /* game board table */
@@ -43,7 +59,7 @@ h1 {
    position: absolute;
    width: 500px;
    height: auto;
-   top: 11rem;
+   top: 8rem;
    left: 50%;
    transform: translate(-50%);
    background-color: #287dfc;
@@ -71,6 +87,7 @@ h1 {
    position: relative;
 
 }
+
 /* top column of clickable circles */
 #top-column td {
    border: dashed 1px #d3d3d3;

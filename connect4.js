@@ -114,13 +114,16 @@ class Game {
     this.placeInTable(y, x);
 
     //check for a tie
-    if (this.board.every((row) => row.every((cell) => cell)))
+    if (this.board.every((row) => row.every((cell) => cell))) {
+      document.querySelector("#start-game").innerHTML = "Restart Game";
       return this.endGame("Tie!");
+    }
 
     //check for winner
     if (this.checkForWinner()) {
       this.gameOver = true;
-      return this.endGame(`The ${this.currentPlayer.color} player won!`);
+      document.querySelector("#start-game").innerHTML = "Restart Game";
+      return this.endGame(`${this.currentPlayer.name} wins!`);
     }
 
     // switch players
@@ -128,6 +131,10 @@ class Game {
       this.currentPlayer === this.players[0]
         ? this.players[1]
         : this.players[0];
+    let currentName = document.querySelector("#current-player");
+    currentName.innerHTML = `${this.currentPlayer.name} <i class="fa-solid fa-circle"></i>`;
+    let icon = document.querySelector(".fa-solid");
+    icon.style.color = this.currentPlayer.color;
   }
 
   /**checkForWinner => check board cell-by-cell for a win in each direction */
@@ -183,15 +190,19 @@ class Game {
 }
 
 class Player {
-  constructor(color) {
+  constructor(color, name) {
     this.color = color;
+    this.name = name;
   }
 }
 
 document.getElementById("start-game").addEventListener("click", () => {
-  let p1 = new Player("red");
-  let p2 = new Player("gold");
-  new Game(p1, p2);
+  let p1 = new Player("red", "Player 1");
+  let p2 = new Player("gold", "Player 2");
+  let newGame = new Game(p1, p2);
   let game = document.querySelector("#game");
   game.style.display = "block";
+  document.querySelector("#start-game").innerHTML = "Restart Game";
+  let currentName = document.querySelector("#current-player");
+  currentName.innerHTML = `Player 1 <i class="fa-solid fa-circle"></i>`;
 });
