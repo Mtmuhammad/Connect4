@@ -6,5 +6,4 @@ JS Implementation of the two-player connection board game, in which the players 
 
 ## Demo
 
-Play: https://mtmuhammad.github.io/Connect4/
-
+Play: connect4mm.netlify.app
